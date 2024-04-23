@@ -10,11 +10,16 @@
 type User = {
   name: string;
   surname: string;
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
-function createOrUpdateUser(initialValues: User) {
+function createOrUpdateUser(initialValues: Partial<User>): Pick<User, "email" | "password">{
+  return {
+    email: initialValues.email,
+    password: initialValues.password,
+    
+  };
   // Оновлення користувача
 }
 
